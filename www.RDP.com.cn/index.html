@@ -1,0 +1,512 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>FireLion国内领先的跨平台移动原生应用开发平台</title>
+	<meta name="keywords" content="FireLion,移动开发,应用开发,客户端开发,C++开发,Android开发,iOS开发,原生开发,跨平台开发,NativeApp"/>
+	<meta name="description" content="FireLion是国内领先的原生跨平台移动应用开发平台，支持C++快速开发原生手机应用，同时支持iOS、Android。"/>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
+	<link  href="css/f_style.css" type="text/css" rel="stylesheet"/>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/sso1.js"></script>
+	<script src="js/slides.min.jquery.js"></script>
+	<script src="../tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		window.onload = $(function(){
+			$('#J_Username').bind({
+				focus:function()
+				{
+					if(this.value==this.defaultValue)
+					{
+						this.value="";
+					}
+				},
+				
+				blur:function()
+				{
+					if(this.value=="")
+					{
+						this.value=this.defaultValue;
+					}					
+				}	
+			});	
+		});	
+	
+		
+		//切换密码提示
+		function changeTip(obj)
+		{
+			var passText = document.getElementById('pstext');
+            var pass = document.getElementById('J_Password');
+			
+			if(obj.id == 'J_Password')
+			{
+				if(obj.value == '' || obj.value.length == 0 )
+				{
+					passText.style.display='';
+					pass.style.display='none';
+				}
+			}
+			else
+			{
+				passText.style.display='none';
+				pass.style.display='';
+				pass.focus();
+			}			
+			
+		}
+	
+	    $(function(){
+	        $('#slides').slides({
+	            preload: true,
+	            preloadImage: '',
+	            play: 10000,
+	            pause: 3000,
+	            hoverPause: true
+	        });
+	    });
+	
+	
+	function mouseOver()
+	{
+		document.getElementById("f_show1").style.display='block';
+		document.getElementById('f_show2').style.display='none';
+		document.getElementById('f_show3').style.display='none';
+		document.getElementById("yuan1").className='f_stabed';
+		document.getElementById("yuan2").className='';
+		document.getElementById("yuan3").className='';
+	}
+	function mouseOut()
+	{
+		show();
+		show2();
+	}
+	function mouseOver2()
+	{
+		document.getElementById("f_show2").style.display='block';
+		document.getElementById('f_show1').style.display='none';
+		document.getElementById('f_show3').style.display='none';
+		document.getElementById("yuan2").className='f_stabed';
+		document.getElementById("yuan1").className='';
+		document.getElementById("yuan3").className='';
+	}
+	function mouseOver3()
+	{
+		document.getElementById("f_show3").style.display='block';
+		document.getElementById('f_show2').style.display='none';
+		document.getElementById('f_show1').style.display='none';
+		document.getElementById("yuan3").className='f_stabed';
+		document.getElementById("yuan2").className='';
+		document.getElementById("yuan1").className='';
+	}
+	
+	
+	var NowImg=1;//表示当前显示的div
+	var MaxImg=3;//表示div的个数
+	function show(){
+		for(var i=1;i<=MaxImg;i++){
+			if(NowImg==i)
+				document.getElementById("f_show"+NowImg).style.display='block';//当前显示的div
+			else
+				document.getElementById("f_show"+i).style.display='none';	
+		}
+		if(NowImg==MaxImg)//判断当前div是否是最后一个，如果是则从第一个重新轮回显示
+			NowImg=1;
+		else
+			NowImg++;//设置下一个显示的div
+	}
+	theTimer=setInterval("show()",5000);
+	
+	var Now=1;
+	var Max=3;
+	function show2(){
+	    
+		for(var i=1;i<=Max;i++){
+			if(Now==i)
+				document.getElementById("yuan"+i).className='f_stabed';
+			else
+				document.getElementById("yuan"+i).className='';	
+		}
+		if(Now==Max)
+			Now=1;
+		else
+			Now++;
+	}
+	theTimer=setInterval("show2()",5000);
+	
+</script>
+
+</head>
+<body onload="show();show2();">
+
+
+	<div class="header">
+		<div class="head_l"></div>
+		<div class="head_r"></div>
+		<div class="head_c">
+			<div class="head_con">
+				<div class="head_cl">
+					<div class="head_t" id="loginFail">
+						<a href="../sso.tx100.com/login@service=http_3A_2F_2Fwww.appcan.cn">登录</a>
+						- 
+						<a href="../dev.appcan.cn/user/register">注册</a>
+					</div>
+					<div class="head_t" id="loginFail" style="display:none;"></div>
+					<div class="head_t" id="loginSucc" style="display:none;">
+						<a href="../dev.appcan.cn/user/account" id="Cnickname"></a>
+						- 
+						<a href="../dev.appcan.cn/sec/logout">注销</a>
+					</div>
+				</div>
+				<div class="head_cr">
+					<a href="enterprise_service.html">切换到FireLion企业服务 ></a>
+				</div>
+			</div>
+		</div>
+	</div>			
+     <div class="nav">
+		<div class="nav1">
+			<div class="nav_con">
+				<div class="nav_logo"><a href="index.html"><img src="f_images/logo.gif" /></a></div>
+				<div class="nav_txt">
+					<ul>
+						<li><a href="experience.html">快速入门</a></li>
+                        <li><a href="">资源下载</a></li>
+                        <li><a href="app/show.html">应用案例</a></li>
+						<li><a href="../doc.appcan.cn/default.htm">文档教程</a></li>
+                        <li style=" width:1px;"><img src="f_images/f_navl.gif" /></li>
+                        <li style=" width:128px;"><a href="../bbs.appcan.cn/forum.php" style="width:129px;">FireLion论坛</a></li>
+                        <!--
+						<li style=" width:1px;"><img src="f_images/f_navl.gif" /></li>
+						<li style=" width:109px;"><a href="../dev.appcan.cn/app/index.html" style="width:109px;">管理应用</a></li>
+                        -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="clear"></div>
+
+	 <div class="slides slides_bg1">
+		<img src="f_images/show1.jpg" class="slides_bg1">
+
+		<div class="slides_bgcon1">
+			<div class="slides_con">
+				<div class="slides_right">
+					<div class="sr_tit">
+						<div><strong class="sr_tit_lx">简单易用</strong><strong class="sr_tit_qn">高速开发</strong><wb:follow-button uid="2549872882" type="gray_1" style="float:right; margin-top:4px;" width="67" height="24" ></wb:follow-button></div>
+						<p style="margin-top:15px;"><span></span>国内最优秀的跨平台移动应用开发平台</p>
+						<p><span></span>C++可视化快速开发</p>
+						<p><span></span>简单易用，原生App，一次开发多平台适用</p>
+					</div>
+					<!--登录-->
+					<div class="sr_login" id="Fail">
+					    <form action="http://sso.tx100.com/login" method="post" onsubmit="return loginValidate();" target="ssoLoginFrame">
+						<div class="sr_input">
+							<!--<div class="sr_il"></div>-->	
+							<div class="sr_ic">
+								<!--<img src="f_images/f_user.gif" class="sr_ipic1" />-->
+								<input name="username" id="J_Username" type="text" value="用户名/邮件名" class="sr_itxt" />
+							</div>
+							<div class="sr_ir"></div>
+						</div>
+						<div class="sr_input" style="margin-top:13px;">
+							<!--<div class="sr_il"></div>-->
+							<div class="sr_ic">
+								<!--<img src="f_images/f_password.gif" class="sr_ipic2" />-->
+                                <input  type="text" value="请输入密码"  id="pstext" class="sr_itxt" onfocus="changeTip(this);" name="pswtext"/>
+								<input style="display:none;" name="password" type="password" value=""  id="J_Password" class="sr_itxt" onblur="changeTip(this);"/>
+							</div>
+							<div class="sr_ir"></div>
+						</div>
+                        <div class="sr_forget"><a href="#">忘记登录密码？</a></div>
+						<!--<div class="sr_ierror" id="J_Error" style="display:none;"><span></span><var id="J_ErrorMsg" style="color:red; line-height:19px; font-size:14px; margin-left:10px;"></var></div>-->
+						<div class="sr_loginbtn">
+                        	<!--
+						    <input type="hidden" id="loginServiceId" name="service" value="http://dev.appcan.cn/sec/j_spring_cas_security_check" />
+							<input type="hidden" id="errorUrlId" name="errorUrl" value="http://www.appcan.cn/login/ajaxRet.do?jsDomain=appcan.cn&" />
+							<input type="hidden" id="callbackId" name="callback" value="parent.loginStatusCallback" />
+							
+							<input type="hidden" name="isAjax" value="true" />
+							<input type="hidden" name="lt" value="" id="J_LoginTicket"/>
+						    <input type="hidden" name="_eventId" value="submit" /> 
+                            -->
+							<div class="sr_lbtn1"><a href="javascript:void(0);"><input name="submit" type="submit" value="登录"/></a></div>
+							<div class="sr_lbtn2"><a href="" id="regist">注册</a></div>
+						</div>
+						</form>
+					</div>
+					<!--登录后
+					<div class="sr_led"  style="display:none;" id="Succ">
+						<ul>
+							<li>空间使用情况<span>已用<var id="usedDiskspace"></var>M/剩余<em id="unUsedDiskspace"></em>M</span></li>
+							<li>今日打包次数<span>打包<var id="pkgTimes"></var>次/剩余<em id="leftPkgTimes"></em>次</span></li>
+							<li>应用创建情况<span>创建<var id="appNum"></var>个/剩余<em id="leftAppNum"></em>个</span></li>
+						</ul>
+						<div class="sr_ledbtn">
+							<div class="sr_ledbtn1"><a href="app/index.html">创建应用</a></div>
+							<div class="sr_ledbtn2"><a href="../dev.appcan.cn/app/index">管理应用</a></div>
+						</div>
+					</div>
+                    -->
+				</div>
+			   <div class="f_stab">
+					<ul>
+						<li id="yuan1" onmouseover="mouseOver();" onmouseout="mouseOut();" class="f_stabed"></li>
+						<li id="yuan2" onmouseover="mouseOver2();" onmouseout="mouseOut()" class=""></li>
+						<li id="yuan3" onmouseover="mouseOver3();" onmouseout="mouseOut()" class=""></li>
+					</ul>
+			  </div>
+				
+				
+				<!--第一屏-->
+				<div id="f_show1" style="display:none;">
+					<div class="f_s4pic"></div>
+					<div class="f_s1txt f_s1txt4">
+						<p style="font-size:40px; ">重磅回馈开发者</p>
+						<p style="font-size:25px; margin-top:10px;">AppCan企业移动开发套件</p>
+						<p style="font-size:47px; font-style:italic; color:#EE791E; margin-top:10px;">￥19,999元</p>
+						<p style="font-size:18px; color:#EE791E;">限购300套</p>
+						<p style="font-size:20px; text-decoration:line-through;">原价：49,800元</p>
+						<p style="font-size:20px; ">活动时间：4月1日——4月30日</p>
+						<a href="../bbs.appcan.cn/forum.php@mod=viewthread&tid=14390" target="_blank">心动马上行动</a>
+					</div>
+				</div>
+				<!--第二屏-->
+				<div id="f_show2" style="display:none;">
+					<div class="f_s2pic"></div>
+					<div class="f_s1txt" style="position:absolute; bottom:60px; left:350px;">
+						<a href="../jwx.aliyun.com/market@source=appcan" target="_blank">活动详情</a>
+					</div>
+				</div>
+				<!--第三屏-->
+				<div id="f_show3" style="display:none;">
+					<div class="f_s1pic"></div>
+					<div class="f_s1txt">
+						<p>国内Hybrid App</p>
+						<p>混合模式开发第一品牌</p>
+						<ul>
+							<li>AppCan版本更新至<span>2.1</span></li>
+							<li>支持<span>iOS7</span></li>
+							<li>发布<span>Windows8</span>测试版</li>
+						</ul>
+						<a href="experience.html">快速入门</a>
+					</div>
+				</div>
+				
+				<!--<div id="f_show3" style="display:none;">
+					<div class="f_s3pic">
+						<div class="f_s3k1">实现对应用的全面控制</div>
+						<div class="f_s3k2">为应用运营提供强有力的支撑</div>
+					</div>
+					
+					<ul>
+						<li>便捷的应用版本管理</li>
+						<li style="margin-left:25px;">强大的终端数据分析</li>
+						<li style="margin-left:50px;">及时的消息推送服务</li>
+					</ul>
+	
+                </div>-->
+
+				
+				
+				
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="content" style="margin-top:22px;">
+		<div class="content1" style="padding-top:34px;">
+			<div class="con_tit">
+				<p class="con_p1">众多理由让您选择FireLion</p>
+				<p class="con_p2">国内首个针对Android和iOS的、多设备、真正原生的应用开发</p>
+				<p class="con_p2">真正原生的支持跨平台Android和iOS</p>
+			</div>
+			<div class="con_shadow_l"></div>
+			<div class="con_shadow_r"></div>
+			<div class="con_con" style="margin-top:55px;">
+				<div class="con_c1_img"><img src="f_images/f_pic1.gif"/></div>
+				<div class="con_c_j con_c1_jl" ><img src="f_images/j_left.gif"/></div>
+				<div class="con_c1_t">
+					<p class="con_c_tit">真正原生的Android和iOS 支持</p>
+					<p class="con_c_con">用唯一的开发平台就可以为智能手机和平板电脑开发应用，使您能够利用单一源代码库创建针对 Android和iOS的真正原生应用使用。</p>
+				</div>
+			</div>
+			<div class="con_w1">
+				<span class="con_gray con_w1_l"></span>
+				<span class="con_gray con_w1_c"></span>
+				<span class="con_gray con_w1_r"></span>
+			</div>
+			<div class="con_con">
+				<div class="con_c2_t">
+					<p class="con_c_tit">多设备应用平台</p>
+					<p class="con_c_con">随着支持实时通信和访问企业数据与云端服务的需要，当今的移动应用开发往往远远超出设备范围之外。FireLion Studio的多设备应用平台使得开发人员针对多客户端操作系统和设备形状因素，可以交付真正相关的移动计算，从设备直到后端服务。</p>
+				</div>
+				<div class="con_c_j con_c2_jr" ><img src="f_images/j_right.gif"/></div>
+				<div class="con_c2_img"><img src="f_images/f_pic2.gif"/></div>
+			</div>
+			<div class="con_w2">
+				<span class="con_gray con_w2_l"></span>
+				<span class="con_gray con_w2_c"></span>
+				<span class="con_gray con_w2_r"></span>
+			</div>
+			<div class="con_con">
+				<div class="con_c3_img"><img src="f_images/f_pic3.gif"/></div>
+				<div class="con_c_j con_c3_jl" ><img src="f_images/j_left.gif"/></div>
+				<div class="con_c3_t">
+					<p class="con_c_tit">将应用迅速应用到市场</p>
+					<p class="con_c_con">通过可视化开发和内置的企业级数据库支持，可以多达 10 倍速快速交付您的业务应用。通过可扩展和可重用的可视化组件积木，设计并开发您的应用，用于更快速和高度可维护的开发。快捷的移动应用原型法允许您创建直接运行在目标设备上的可视化原型，所以您可以很快地结合反馈，然后将您的应用迅速应用到市场。</p>
+				</div>
+			</div>
+			<div class="con_w3">
+				<span class="con_gray con_w3_l"></span>
+				<span class="con_gray con_w3_c"></span>
+				<span class="con_gray con_w3_r"></span>
+			</div>
+			<div class="con_con">
+				<div class="con_c4_t">
+					<p class="con_c_tit">更多的安全性和控制</p>
+					<p class="con_c_con">许多应用开发供应商通过使用脚本语言和运行时进行多平台开发，使得移动设备成为臭名昭著的黑客攻击目标，并且呈现固有的安全风险。使用FireLion Studio，您可以获得真正原生的应用开发，所以您的代码直接运行在设备上，减少了第三方攻击的风险。</p>
+				</div>
+				<div class="con_c_j con_c4_jr" ><img src="f_images/j_right.gif"/></div>
+				<div class="con_c4_img"><img src="f_images/f_pic4.gif"/></div>
+			</div>
+			<div class="con_w4">
+				<span class="con_gray con_w4_l"></span>
+				<span class="con_gray con_w4_c"></span>
+				<span class="con_gray con_w4_r"></span>
+			</div>
+			<div class="con_btn con_tybtn">
+				<a href="experience.html">快速入门</a>
+			</div>
+			<!--<div class="con_c5">
+				<div class="con_c5_t1">安全</div>
+				<div class="con_c5_t2">企业级移动应用有更高的安全要求，为了全面应对BYOD带来的安全风险，AppCan提供越狱测试、沙盒加密、远程失效、应用销毁等企业移动安全解决方案。</div>
+			</div>
+			<div class="con_btn con_ljbtn">
+				<a href="enterprise_service.html"><span>详细了解</span>AppCan企业服务</a>
+			</div>
+			<div class="con_new" style="display:none;">
+				<div class="con_new_ry">
+					<div class="con_ry" style="margin-left:24px;">企业荣誉</div>
+					<div class="con_ryshow">
+						
+					</div>
+				</div>
+				<div class="con_new_mt">
+					<div class="con_ry" style="margin-left:8px;">媒体关注</div>
+					<ul>
+						<li><a href="#"><span>【文档】</span>标题内容标题内容标题内容标题内容标题内容</a></li>
+						<li><a href="#"><span>【文档】</span>标题内容标题内容标题内容标题内容标题内容</a></li>
+						<li><a href="#"><span>【文档】</span>标题内容标题内容标题内容标题内容标题内容</a></li>
+						<li><a href="#"><span>【文档】</span>标题内容标题内容标题内容标题内容标题内容</a></li>
+						<li><a href="#"><span>【文档】</span>标题内容标题内容标题内容标题内容标题内容</a></li>
+					</ul>
+				</div>
+			</div>-->
+			<div style="height:29px; width:990px; float:left;"></div>
+		</div>
+	</div>
+    <div class="foot">
+       <div id="footer">
+              <div class="split"></div>
+            <ul class="foot_column nav_juli">
+                <li class="caption">关于</li>
+                <li><a target="_blank" href="#">关于我们</a></li>
+            <li><a target="_blank" href="#">商务合作</a></li> 
+            <li><a target="_blank" href="#">意见反馈</a></li>
+        </ul>
+        <div class="split"></div>
+        <ul class="foot_column nav_juli">
+            <li class="caption">帮助</li>
+            <li><a target="_blank" href="#">产品演示</a></li>
+            <li><a target="_blank" href="#">开发文档 </a></li>
+            <li><a target="_blank" href="#">开发社区</a></li>
+            <!-- 
+            <li><a target="_blank" href="#">常见问题</a></li>
+             -->
+        </ul>
+        <div class="split"></div>
+        <ul class="foot_column nav_juli">
+            <li class="caption">条款</li>
+            <li><a target="_blank" href="#">服务条款</a></li> 
+            <li><a target="_blank" href="#">隐私声明</a></li> 
+        </ul>
+        <div class="split fans"></div>
+        <ul class="foot_column fans nav_juli">
+            <li class="caption">备案</li>
+            <li style="color:#ccc">粤ICP备12056949号</li> 
+        </ul>
+        <p id="copyright">&copy; 2014-2014 深圳xxx科技有限公司  All Rights Reserved</p>
+        <div class="clear"></div>
+    </div>
+    
+    <!--
+        <div class="foot_bg">
+            <ul class="foot_nav">
+                <li><a >简介About</a></li>
+                <li><a >开发者Developer</a></li>
+                <li><a >帮助Help</a></li>
+                <li><a >合作Cooperation</a></li>
+                <li><a >明文条款Clause</a></li>
+                <li><a >APPCAN官方论坛</a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="nav_list nav_juli">
+                <li><a href="about_us.html">关于我们</a></li>
+                <li><a href="app/index.html">在线开发</a></li>
+                <li><a href="swhz.html">商务合作</a></li>
+                <li><a href="service.html">服务条款</a></li>
+            <li><a href="../bbs.appcan.cn/forum.php@mod=forumdisplay&fid=61">开发讨论</a></li>
+            <li><a href="../bbs.appcan.cn/forum.php@mod=forumdisplay&fid=60">秘籍荟萃</a></li>
+            <div class="clear"></div>
+            </ul>
+        <ul class="nav_list" style="padding-top:0px;">
+                <li><a href="feedback.html">意见反馈</a></li>
+                <li><a href="../doc.appcan.cn/#!/guide/getting_started">开发框架</a></li>
+                <li><a href="../doc.appcan.cn/#!/guide/handbook">SDK入门指南</a></li>
+                <li><a href="links.html">友情链接</a></li>
+                <li><a href="privacy.html">隐私条款</a></li>
+            <li><a href="../bbs.appcan.cn/forum.php@mod=forumdisplay&fid=62">站长专区</a></li>	
+                <div class="clear"></div>
+            </ul>
+            <ul class="nav_list" style="padding-top:0px;">
+                <li><a href="contactus.html">联系我们</a></li>
+                <li><a href="../doc.appcan.cn/#!/api/uexAPI">API文档</a></li>
+                <li><a href="../doc.appcan.cn/#!/video">开发教程</a></li>
+                <li><span>&nbsp;</span></li>
+                <li><a href="zhishicq.html">知识产权</a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="nav_list" style="padding-top:0px;">
+               <li><a href="app/show.html">APP展示</a></li>
+                <li><a href="../doc.appcan.cn/#!/api/UI">UI文档</a></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="nav_list" style="padding-top:0px;">
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>&nbsp;</span></li>
+                <div class="clear"></div>
+            </ul>
+            <div class="line"></div>
+            <div class="copy">
+            正益无线（北京）科技有限公司版权所有   京ICP证11006447号-6  京公网安备:110105011387
+            <div style="display:none;"><script src="../s96.cnzz.com/stat.php@id=3774146&web_id=3774146" language="JavaScript"></script></div>
+        </div>
+            <div class="line" style="margin-top:0px;"></div>
+        </div>
+        -->
+    </div>
+</body>
+</html>
