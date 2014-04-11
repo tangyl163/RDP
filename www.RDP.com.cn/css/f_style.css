@@ -79,12 +79,16 @@ body{ background: #fff;}
 .sr_itxt{ font-size:16px; color:#71716f; line-height:46px; width:282px; height:46px; background:transparent; border:none; padding-left:10px; margin:5px 0 5 10px; }
 
 .sr_forget{width:292px; float:left; margin-left:6px;margin-top:5px;}
-.sr_forget a{line-height:19px; font-size:12px;float:right; cursor:pointer; display:block;color:#06558d;}
+.sr_forget a{line-height:19px; font-size:12px;cursor:pointer; display:block;color:#06558d;text-align:right;}
 .sr_forget a:hover{text-decoration:underline;};
+.sr_forget table{width:320;}
 
-.sr_ierror{ width:302px; float:left; margin:7px 0 0 26px;}
-.sr_ierror span{ background:url(../f_images/f_error.png) no-repeat !important; _background:none;
+.a_tips{width:100%;}
+.error{width:100%;display:none;}
+.error span{ background:url(../f_images/f_error.png) no-repeat !important; _background:none;
 	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=f_images/f_error.png) no-repeat; width:19px; height:19px; float:left;}
+
+
 .sr_ierror em{ color:#cd0202; font-size:14px; float:left; line-height:19px; margin-left:8px;}
 .sr_loginbtn{ width:312px; margin-top:7px; float:left;}
 .sr_lbtn1 a input{ background:url(../f_images/f_login.png) no-repeat !important; _background:none;

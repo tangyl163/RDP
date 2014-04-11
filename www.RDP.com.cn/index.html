@@ -10,53 +10,14 @@
 	<link  href="css/f_style.css" type="text/css" rel="stylesheet"/>
 	
 	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/fc.js"></script>
+    <!--
 	<script type="text/javascript" src="js/sso1.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
 	<script src="../tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    -->
 	<script>
-		window.onload = $(function(){
-			$('#J_Username').bind({
-				focus:function()
-				{
-					if(this.value==this.defaultValue)
-					{
-						this.value="";
-					}
-				},
-				
-				blur:function()
-				{
-					if(this.value=="")
-					{
-						this.value=this.defaultValue;
-					}					
-				}	
-			});	
-		});	
-	
-		
-		//切换密码提示
-		function changeTip(obj)
-		{
-			var passText = document.getElementById('pstext');
-            var pass = document.getElementById('J_Password');
-			
-			if(obj.id == 'J_Password')
-			{
-				if(obj.value == '' || obj.value.length == 0 )
-				{
-					passText.style.display='';
-					pass.style.display='none';
-				}
-			}
-			else
-			{
-				passText.style.display='none';
-				pass.style.display='';
-				pass.focus();
-			}			
-			
-		}
+
 	
 	    $(function(){
 	        $('#slides').slides({
@@ -208,7 +169,7 @@
 							<!--<div class="sr_il"></div>-->	
 							<div class="sr_ic">
 								<!--<img src="f_images/f_user.gif" class="sr_ipic1" />-->
-								<input name="username" id="J_Username" type="text" value="用户名/邮件名" class="sr_itxt" />
+								<input name="username" id="lg_usr_id" type="text" value="用户名/邮件名" class="sr_itxt" />
 							</div>
 							<div class="sr_ir"></div>
 						</div>
@@ -216,13 +177,38 @@
 							<!--<div class="sr_il"></div>-->
 							<div class="sr_ic">
 								<!--<img src="f_images/f_password.gif" class="sr_ipic2" />-->
-                                <input  type="text" value="请输入密码"  id="pstext" class="sr_itxt" onfocus="changeTip(this);" name="pswtext"/>
-								<input style="display:none;" name="password" type="password" value=""  id="J_Password" class="sr_itxt" onblur="changeTip(this);"/>
+                                <input  type="text" value="密码"  id="pstext" class="sr_itxt" onfocus="changeTip(this);" name="pswtext"/>
+								<input style="display:none;" name="psw" type="password" value=""  id="lg_usr_psw" class="sr_itxt" onblur="changeTip(this);"/>
 							</div>
 							<div class="sr_ir"></div>
 						</div>
-                        <div class="sr_forget"><a href="#">忘记登录密码？</a></div>
-						<!--<div class="sr_ierror" id="J_Error" style="display:none;"><span></span><var id="J_ErrorMsg" style="color:red; line-height:19px; font-size:14px; margin-left:10px;"></var></div>-->
+                        <div class="sr_forget">
+                        	<table>
+                            	<tr>
+                            		<td style="width:200px;">
+                                        <div id="lg_error" class="error">
+                                            <span></span>
+                                            <var id="lg_errorMsg" style="color:red; line-height:19px; font-size:12px; margin-left:10px;"></var>
+                                        </div>                                    
+                                    </td>
+                                    <td style="width:120px;">
+                                        <div class="a_tips" >
+                                            <a href="#">忘记登录密码？</a>
+                                        </div>                                    
+                                    </td>
+                            	</tr>
+                            </table>
+                        	<!--
+                        	<div id="lg_error" class="error">
+                                <span></span>
+                                <var id="lg_errorMsg" style="color:red; line-height:19px; font-size:14px; margin-left:10px;">对方空间啊</var>
+                            </div>
+                            <div class="a_tips" >
+                            	<a href="#">忘记登录密码？</a>
+                            </div>
+                            -->
+                        </div>
+						<!--<div class="sr_ierror" id="lg_error" style="display:none;"><span></span><var id="lg_errorMsg" style="color:red; line-height:19px; font-size:14px; margin-left:10px;"></var></div>-->
 						<div class="sr_loginbtn">
                         	<!--
 						    <input type="hidden" id="loginServiceId" name="service" value="http://dev.appcan.cn/sec/j_spring_cas_security_check" />
@@ -415,16 +401,16 @@
               <div class="split"></div>
             <ul class="foot_column nav_juli">
                 <li class="caption">关于</li>
-                <li><a target="_blank" href="#">关于我们</a></li>
-            <li><a target="_blank" href="#">商务合作</a></li> 
-            <li><a target="_blank" href="#">意见反馈</a></li>
+                <li><a target="_blank" href="">关于我们</a></li>
+            <li><a target="_blank" href="">商务合作</a></li> 
+            <li><a target="_blank" href="">意见反馈</a></li>
         </ul>
         <div class="split"></div>
         <ul class="foot_column nav_juli">
             <li class="caption">帮助</li>
-            <li><a target="_blank" href="#">产品演示</a></li>
-            <li><a target="_blank" href="#">开发文档 </a></li>
-            <li><a target="_blank" href="#">开发社区</a></li>
+            <li><a target="_blank" href="">产品演示</a></li>
+            <li><a target="_blank" href="">开发文档 </a></li>
+            <li><a target="_blank" href="">开发社区</a></li>
             <!-- 
             <li><a target="_blank" href="#">常见问题</a></li>
              -->
@@ -432,8 +418,8 @@
         <div class="split"></div>
         <ul class="foot_column nav_juli">
             <li class="caption">条款</li>
-            <li><a target="_blank" href="#">服务条款</a></li> 
-            <li><a target="_blank" href="#">隐私声明</a></li> 
+            <li><a target="_blank" href="">服务条款</a></li> 
+            <li><a target="_blank" href="">隐私声明</a></li> 
         </ul>
         <div class="split fans"></div>
         <ul class="foot_column fans nav_juli">
