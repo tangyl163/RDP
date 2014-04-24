@@ -18,7 +18,7 @@ var loginValidate = function()
 		$("#lg_errorMsg").text("密码不能为空！");
 		return result;
 	}	
-	return result;	
+	return true;	
 }
 
 
